@@ -85,15 +85,15 @@ Below are some screenshots of Nova in action:
 
 ### Demo of the Web Interface
 
-![Web Interface Demo](screenshots/web_interface.png)
+![Web Interface Demo](screenshots/1.1(hello).png)
 
 ### Command Execution Example
 
-![Command Execution](screenshots/command_execution.png)
+![Command Execution](screenshots/2.1.png)
 
 ### Playing Music
 
-![Playing Music](screenshots/playing_music.png)
+![Playing Music](screenshots/3.1(SongMarch).png)
 ## Contributing
 
 We welcome contributions! Please fork the repository and submit a pull request for any enhancements or bug fixes.
