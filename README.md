@@ -94,6 +94,17 @@ Below are some screenshots of Nova in action:
 ### Playing Music
 
 ![Playing Music](screenshots/3.1(Song_March).png)
+
+
+
+screenshots/2.2.png
+screenshots/2.3.png
+screenshots/2.4(BIT).png
+screenshots/2.4(Google.com).png
+
+(screenshots/3.2(song_moye_moye).png)
+screenshots/4(news).png
+templates
 ## Contributing
 
 We welcome contributions! Please fork the repository and submit a pull request for any enhancements or bug fixes.
