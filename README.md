@@ -79,6 +79,21 @@ Use the text input or voice commands to interact with Nova. Examples of commands
 - Adjust your microphone and speaker settings to improve the accuracy of speech recognition and text-to-speech functionalities.
 - This application requires access to your microphone and speakers for full functionality.
 
+## Screenshots
+
+Below are some screenshots of Nova in action:
+
+### Demo of the Web Interface
+
+![Web Interface Demo](screenshots/web_interface.png)
+
+### Command Execution Example
+
+![Command Execution](screenshots/command_execution.png)
+
+### Playing Music
+
+![Playing Music](screenshots/playing_music.png)
 ## Contributing
 
 We welcome contributions! Please fork the repository and submit a pull request for any enhancements or bug fixes.
