@@ -18,8 +18,8 @@ app = Flask(__name__)
 
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
-newsapi = "23ed1e5930b641edb7e58c659168fcfb"
-openai_api_key = "sk-proj-TgHsC5TA8kOceYBGJicmT3BlbkFJPB1H7pPI7HGASVNpKg9W"
+newsapi = "your_news_api_key"
+openai_api_key = "your_openai_api_key"
 
 # Setup logging
 logging.basicConfig(level=logging.DEBUG)
