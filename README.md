@@ -93,7 +93,7 @@ Below are some screenshots of Nova in action:
 
 ### Playing Music
 
-![Playing Music](screenshots/3.1(SongMarch).png)
+![Playing Music](screenshots/3.1(Song_March).png)
 ## Contributing
 
 We welcome contributions! Please fork the repository and submit a pull request for any enhancements or bug fixes.
