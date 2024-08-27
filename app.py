@@ -175,4 +175,3 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 
-# newsapi = "23ed1e5930b641edb7e58c659168fcfb"
