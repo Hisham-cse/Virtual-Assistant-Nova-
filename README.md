@@ -83,9 +83,6 @@ Use the text input or voice commands to interact with Nova. Examples of commands
 
 We welcome contributions! Please fork the repository and submit a pull request for any enhancements or bug fixes.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
