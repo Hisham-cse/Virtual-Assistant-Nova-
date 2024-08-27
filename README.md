@@ -89,7 +89,7 @@ Below are some screenshots of Nova in action:
 
 ### Command Execution Example
 
-![Command Execution](screenshots/2.1png)
+![Command Execution](screenshots/2.1.png)
 
 ### Playing Music
 
