@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Virtual Assistant</h1>
+        <button id="micButton">
+            <img src="{{ url_for('static', filename='microphone-svgrepo-com.svg') }}" alt="Microphone">
+        </button>
+        <p id="status">Press the button and start speaking...</p>
+        <p id="response"></p>
+    </div>
+    <div>
+        <p id="text"></p>
+    </div>
+    <script>
+        const micButton = document.getElementById('micButton');
+        const responseParagraph = document.getElementById('response');
+        const statusParagraph = document.getElementById('status');
+        let isListening = false;
+        let recognition;
+        let openedTabs = {};
+
+        micButton.addEventListener('click', () => {
+            if (!isListening) {
+                recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                recognition.lang = 'en-US';
+                recognition.continuous = true;
+                recognition.interimResults = false;
+                recognition.start();
+
+                statusParagraph.textContent = 'Listening...';
+                isListening = true;
+
+                recognition.onresult = function(event) {
+                    const command = event.results[event.resultIndex][0].transcript;
+                    statusParagraph.textContent = 'Processing...';
+                    fetch('/process_command', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ command: command })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        const responseText = data.response;
+                        responseParagraph.textContent = responseText;
+                        const [action, site] = responseText.split('::');
+                        
+                        if (action.includes("Opening")) {
+                            const newTab = window.open(site, '_blank');
+                            openedTabs[site] = newTab;
+                        } else if (action.includes("Closing")) {
+                            const siteKey = Object.keys(openedTabs).find(key => key.includes(site.toLowerCase()));
+                            if (siteKey) {
+                                openedTabs[siteKey].close();
+                                delete openedTabs[siteKey];
+                            }
+                        } else {
+                            const utterance = new SpeechSynthesisUtterance(responseText);
+                            window.speechSynthesis.speak(utterance);
+                        }
+                        
+                        statusParagraph.textContent = 'Listening...';
+                    })
+                    .catch(error => {
+                        responseParagraph.textContent = 'Error: ' + error;
+                        statusParagraph.textContent = 'Listening...';
+                    });
+                };
+
+                recognition.onerror = function(event) {
+                    responseParagraph.textContent = 'Error: ' + event.error;
+                    statusParagraph.textContent = 'Press the button and start speaking...';
+                    isListening = false;
+                };
+            } else {
+                recognition.stop();
+                statusParagraph.textContent = 'Press the button and start speaking...';
+                isListening = false;
+            }
+        });
+    </script>
+</body>
+</html>
